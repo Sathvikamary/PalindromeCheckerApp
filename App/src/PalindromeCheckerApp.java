@@ -1,3 +1,7 @@
+import java.util.Scanner;
+
+import static java.util.Scanner.*;
+
 /**
  * =========================================================
  * MAIN CLASS - UseCase2PalindromeCheckerApp
@@ -17,26 +21,26 @@ public class PalindromeCheckerApp {
         public static void main(String[] args) {
 
 
-                                // Hardcoded string
-                                String input = "madam";
+                    Scanner sc = new Scanner(System.in);
+                    System.out.print("Enter a string to check: ");
+                    String input = sc.next();
 
-                                boolean isPalindrome = true;
+                    // Normalize the string (optional, but recommended for accuracy)
+                    String original = input.toLowerCase();
+                    String reversed = "";
 
-                                // Loop only till half of the string length
-                                for (int i = 0; i < input.length() / 2; i++) {
+                    // Iterate from the last character to the first.
+                    for (int i = input.length() - 1; i >= 0; i--) {
+                        reversed += original.charAt(i);
+                    }
 
-                                        if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                                                isPalindrome = false;
-                                                break;
-                                        }
-                                }
+                    // Compare original and reversed strings
+                    if (original.equals(reversed)) {
+                        System.out.println("The string \"" + input + "\" is a palindrome.");
+                    } else {
+                        System.out.println("The string \"" + input + "\" is NOT a palindrome.");
+                    }
 
-                                // Display result
-                                if (isPalindrome) {
-                                        System.out.println(input + " is a palindrome.");
-                                } else {
-                                        System.out.println(input + " is not a palindrome.");
-                                }
-                        }
+                    sc.close();
                 }
-
+            }
