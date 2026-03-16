@@ -1,34 +1,33 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
 
 /**
 * =========================================================
-* MAIN CLASS - UseCase7PalindromeCheckerApp
+* MAIN CLASS - UseCase8PalindromeCheckerApp
 * =========================================================
-* Use Case 7: Deque Based Optimized Palindrome Checker
+* Use Case 8: Linked List Based Palindrome Checker
   */
-  public class UseCase7PalindromeCheckerApp {
+  public class UseCase8PalindromeCheckerApp {
 
   public static void main(String[] args) {
   // Define the input string
-  String input = "refer";
+  String input = "level";
 
-       // Create a Deque to store characters
-       Deque<Character> deque = new ArrayDeque<>();
+       // Create a LinkedList to store characters
+       LinkedList<Character> list = new LinkedList<>();
 
-       // Add each character to the deque
+       // Add each character to the linked list
        for (char c : input.toCharArray()) {
-           deque.addLast(c);
+           list.addLast(c);
        }
 
-       // Flag to track palindrome result
+       // Flag to track palindrome state
        boolean isPalindrome = true;
 
-       // Continue comparison while more than one element exists
-       while (deque.size() > 1) {
-           // Remove from both ends and compare
-           char first = deque.removeFirst();
-           char last = deque.removeLast();
+       // Compare until only one or zero elements remain
+       while (list.size() > 1) {
+           // Remove from both ends: front-to-back comparison
+           char first = list.removeFirst();
+           char last = list.removeLast();
 
            if (first != last) {
                isPalindrome = false;
