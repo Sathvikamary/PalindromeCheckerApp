@@ -1,15 +1,35 @@
-# PalindromeCheckerApp
-A palindrome is a word, number, or sentence that reads the same forward and backward.
-We are using Java.
+import java.util.Scanner;
+import java.util.Stack;
 
-Java is:
+public class UseCase5PalindromeCheckerApp {
 
-A high-level programming language
+    public static void main(String[] args) {
 
-Object-Oriented
+        Scanner sc = new Scanner(System.in);
+        Stack<Character> stack = new Stack<>();
 
-Platform-independent (runs on any system with JVM)
+        System.out.println("Enter a string:");
+        String input = sc.nextLine();
 
-Widely used for desktop, web, mobile (Android), and enterprise applications
-It takes a word or sentence, reverses it, and compares the reversed version with the original.
-If both are the same, it prints “Palindrome”; otherwise, it prints “Not a palindrome.”
+        // Push characters into stack
+        for(int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
+
+        String reversed = "";
+
+        // Pop characters from stack
+        while(!stack.isEmpty()) {
+            reversed = reversed + stack.pop();
+        }
+
+        // Compare original and reversed string
+        if(input.equals(reversed)) {
+            System.out.println("The given string is a Palindrome");
+        } else {
+            System.out.println("The given string is NOT a Palindrome");
+        }
+
+        sc.close();
+    }
+}
